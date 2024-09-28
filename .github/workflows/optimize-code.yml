@@ -1,0 +1,30 @@
+name: Code Optimization Suggestion
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  analyze-code:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repo
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Install Python and dependencies
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      # Install the required Python libraries
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      # Run the analysis script
+      - name: Run AI Code Optimization
+        run: |
+          python scripts/analyze_code.py
