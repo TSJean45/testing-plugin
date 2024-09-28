@@ -19,6 +19,11 @@ jobs:
         with:
           python-version: 3.9
 
+      # Install the required Python libraries
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
       # Run the analysis script
       - name: Run AI Code Optimization
         run: |
